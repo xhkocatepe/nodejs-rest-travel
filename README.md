@@ -40,7 +40,7 @@ User Info:
 
 ## API EndPoints
 
-* **`/trips`** clients can reach to query all trips filtered by parameters.
+* `GET` **`/trips`** clients can reach to query all trips filtered by parameters.
 
 ---**query parameters**:
 
@@ -72,7 +72,7 @@ User Info:
 	    ]
 	}
 ```
-* **`trips/minMaxTravelled`** get the min and max distance travelled for the trips with the **trip** information. Additional, client choose to start point and a radius to be strictred area.
+* `GET`  **`trips/minMaxTravelled`** get the min and max distance travelled for the trips with the **trip** information. Additional, client choose to start point and a radius to be strictred area.
 
 ---**query parameters**:
 
@@ -114,7 +114,7 @@ User Info:
 
 ```
 	
-* **`trips/vehicleModelYears`** Clients can access the number of trips with grouped by vehicle model year. It is the same above the trips which are started in a strictred region  by a point and a radius.
+* `GET` **`trips/vehicleModelYears`** Clients can access the number of trips with grouped by vehicle model year. It is the same above the trips which are started in a strictred region  by a point and a radius.
 
 -- **query parameters**:
 ```
