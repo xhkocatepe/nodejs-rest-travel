@@ -23,109 +23,125 @@ The project directory structuring is that:
 
 1. You can do `POST` on `http://localhost:3000/token` with the auth info. `body` should be like this:
 User Info:
-    ```
+
+```
     {
         "username": "travel",
         "password": "developer"
     }
-    ```
+```
+
 2. When you get the `access_token` after `POST` operation. You can reach the endpoint validation to add `Headers` auth parameters otherwise you cannot access.
-    ```
+ ```
     {
         "Authorization": "Bearer " + access_token
     }
-    ```
+ ```
 
 ## API EndPoints
 
-* `/trips` clients can reach to query all trips filtered by parameters.
--- **query parameters**:
-    ```
-{
-    "pointLong": double
-    "pointLat": double
-    "radius": int  //meters
-    "endDate": dateString "YYYY/MM/DD HH:mm" (Optinal)
-    "startDate":dateString "YYYY/MM/DD HH:mm" (Optinal)
-}
-    ```
-	-- **response sample**:
-    ```
-{
- "success": true,
-    "trips": [
-        {
-            "_id": "5cebab1fa2752d2aa3d25868",
-            "distance_travelled": 5872,
-            "driver_rating": 5,
-            "rider_rating": 5,
-			.
-			.
-			.
-        }
-    ]
-}
-    ```
-* `trips/minMaxTravelled` get the min and max distance travelled for the trips with the **trip** information. Additional, client choose to start point and a radius to be strictred area.
--- **query parameters**:
-    ```
-{
-    "pointLong": double
-    "pointLat": double
-    "radius": int  //meters
-}
-    ```
+* **`/trips`** clients can reach to query all trips filtered by parameters.
+
+---**query parameters**:
+
+```
+	{
+	    "pointLong": double
+	    "pointLat": double
+	    "radius": int  //meters
+	    "endDate": dateString "YYYY/MM/DD HH:mm" (Optinal)
+	    "startDate":dateString "YYYY/MM/DD HH:mm" (Optinal)
+	}
+	
+```
+ -- **response sample**:
+ 
+ ```
+    	{
+	 "success": true,
+	    "trips": [
+		{
+		    "_id": "5cebab1fa2752d2aa3d25868",
+		    "distance_travelled": 5872,
+		    "driver_rating": 5,
+		    "rider_rating": 5,
+				.
+				.
+				.
+		}
+	    ]
+	}
+```
+* **`trips/minMaxTravelled`** get the min and max distance travelled for the trips with the **trip** information. Additional, client choose to start point and a radius to be strictred area.
+
+---**query parameters**:
+
+```
+	{
+	    "pointLong": double
+	    "pointLat": double
+	    "radius": int  //meters
+	}
+	
+```
+
 -- **response sample**:
-    ```
-{
-    "success": true,
-    "trips": [
-        {
-            "minDistanceTravelled": {
-                "_id": "5cebab38a2752d2aa3d2b68b",
-                "distance_travelled": 1,
-                "driver_rating": 5,
-                "rider_rating": 5,
-				.
-				.
-				.
-            },
-            "maxDistanceTravelled": {
-                "_id": "5cebab34a2752d2aa3d2a5cd",
-                "distance_travelled": 234592,
-                "driver_rating": 5,
-                "rider_rating": 5,
-                
-            }
-        }
-    ]
-}
-    ```
-* `trips/vehicleModelYears` Clients can access the number of trips with grouped by vehicle model year. It is the same above the trips which are started in a strictred region  by a point and a radius.
+ 
+ ```
+ 	{
+	    "success": true,
+	    "trips": [
+		{
+		    "minDistanceTravelled": {
+			"_id": "5cebab38a2752d2aa3d2b68b",
+			"distance_travelled": 1,
+			"driver_rating": 5,
+			"rider_rating": 5,
+					.
+					.
+					.
+		    },
+		    "maxDistanceTravelled": {
+			"_id": "5cebab34a2752d2aa3d2a5cd",
+			"distance_travelled": 234592,
+			"driver_rating": 5,
+			"rider_rating": 5,
+
+		    }
+		}
+	    ]
+	}
+
+```
+	
+* **`trips/vehicleModelYears`** Clients can access the number of trips with grouped by vehicle model year. It is the same above the trips which are started in a strictred region  by a point and a radius.
+
 -- **query parameters**:
-    ```
-{
-    "pointLong": double
-    "pointLat": double
-    "radius": int   //meters
-}
-    ```
+```
+	{
+	    "pointLong": double
+	    "pointLat": double
+	    "radius": int   //meters
+	}
+```
+
 -- **response sample**:
-    ```
-{
-    "success": true,
-    "trips": [
-        {
-            "numberOfTrips": 303,
-            "year": 2001
-        },
-        {
-            "numberOfTrips": 89,
-            "year": 2002
-        }
-    ]
-}
-    ```
+
+```
+	{
+	    "success": true,
+	    "trips": [
+		{
+		    "numberOfTrips": 303,
+		    "year": 2001
+		},
+		{
+		    "numberOfTrips": 89,
+		    "year": 2002
+		}
+	    ]
+	}
+```
 
 ## Testing
 
