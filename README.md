@@ -147,9 +147,9 @@ User Info:
 
 To run tests  run  `npm test` with `mocha` and `chai` on local system. You can reach `server/tests/` folders consist of `jwt.test.js` and `trips.test.js`
 
-##POSTMAN Files
+## POSTMAN Files
 
 You can download POSTMAN Saved files related to API Endpoint. There are 2 files to download.
-1. `postman_collection.json` consists of 4 requests including Auth token request.
-2.  `postman_environment.json` consist of Environment Info. You do not need to copy and paste `access_token` because environment can handle automatically save other requests.
+1. `postman/travel-hakan.postman_collection.json` consists of 4 requests including Auth token request.
+2. `postman/travel-env-hakan.postman_environment.json` consist of Environment Info. You do not need to copy and paste `access_token` because environment can handle automatically save other requests.
 
