@@ -10,7 +10,7 @@ describe('### Htpp operations to get related info', () => {
     it("should response successful token", (done) => {
         let body =
         {
-            "username": "bitaksi",
+            "username": "travel",
             "password": "developer"
         }
         chai.request(index)

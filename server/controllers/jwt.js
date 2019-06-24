@@ -8,7 +8,7 @@ module.exports.login = (req, res, next) => {
     let sUsername = req.body.username;
 
     // For the given username fetch user from DB
-    let sMockedUsername = 'bitaksi';
+    let sMockedUsername = 'travel';
     let sMockedPassword = 'developer';
 
     if (sUsername && sPassword) {

@@ -25,7 +25,7 @@ The project directory structuring is that:
 User Info:
     ```
     {
-        "username": "bitaksi",
+        "username": "travel",
         "password": "developer"
     }
     ```

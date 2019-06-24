@@ -1,0 +1,200 @@
+{
+	"info": {
+		"_postman_id": "7addf82c-c487-49e7-ad65-3fd7cf414206",
+		"name": "travel-hakan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth token generate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b118617d-07aa-4bcd-a5bb-d6065a6a14c0",
+						"exec": [
+							"postman.setEnvironmentVariable(\"access-token\", JSON.parse(responseBody).token_type + \" \" + JSON.parse(responseBody).access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"travel\",\n    \"password\": \"developer\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "case1-all-trips",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/trips?pointLong=-97.62908873&pointLat=31.20752395&radius=10000000&endDate=2016/06/06 05:50&startDate=2016/06/06 05:30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips"
+					],
+					"query": [
+						{
+							"key": "pointLong",
+							"value": "-97.62908873"
+						},
+						{
+							"key": "pointLat",
+							"value": "31.20752395"
+						},
+						{
+							"key": "radius",
+							"value": "10000000"
+						},
+						{
+							"key": "endDate",
+							"value": "2016/06/06 05:50"
+						},
+						{
+							"key": "startDate",
+							"value": "2016/06/06 05:30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "case2-distance-travelled",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/trips/minMaxTravelled?pointLong=-97.62908873&pointLat=31.20752395&radius=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips",
+						"minMaxTravelled"
+					],
+					"query": [
+						{
+							"key": "pointLong",
+							"value": "-97.62908873"
+						},
+						{
+							"key": "pointLat",
+							"value": "31.20752395"
+						},
+						{
+							"key": "radius",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "case3-grouped-by-vehicle-model-years ",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{access-token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/trips/vehicleModelYears?pointLong=-97.62908873&pointLat=31.20752395&radius=100000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"trips",
+						"vehicleModelYears"
+					],
+					"query": [
+						{
+							"key": "pointLong",
+							"value": "-97.62908873"
+						},
+						{
+							"key": "pointLat",
+							"value": "31.20752395"
+						},
+						{
+							"key": "radius",
+							"value": "100000"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "87d10762-a4af-4827-bbea-27c2fa5c4d38",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e82fb87e-5d42-4dc6-9577-ab2ec089b318",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
