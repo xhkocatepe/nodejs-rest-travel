@@ -57,7 +57,7 @@ User Info:
  -- **response sample**:
  
  ```
-    	{
+ {
 	 "success": true,
 	    "trips": [
 		{
@@ -70,7 +70,7 @@ User Info:
 				.
 		}
 	    ]
-	}
+}
 ```
 * `GET`  **`trips/minMaxTravelled`** get the min and max distance travelled for the trips with the **trip** information. Additional, client choose to start point and a radius to be strictred area.
 
@@ -102,7 +102,7 @@ User Info:
 					.
 		    },
 		    "maxDistanceTravelled": {
-			"_id": "5cebab34a2752d2aa3d2a5cd",
+			"_id": "5cebab34a2752d2aa3d2a5cd",Mission Completed 👾
 			"distance_travelled": 234592,
 			"driver_rating": 5,
 			"rider_rating": 5,
